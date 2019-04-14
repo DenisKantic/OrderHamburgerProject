@@ -23,6 +23,9 @@ public class Hamburger {
     double dodatakcijena4;
 
 
+    public Hamburger() {
+    }
+
     public Hamburger(String imeHamburgera, String vrstaMesa, String tipHljeba, double cijena) {
         this.imeHamburgera = imeHamburgera;
         this.vrstaMesa = vrstaMesa;
@@ -30,7 +33,7 @@ public class Hamburger {
         this.cijena = cijena;
     }
 
-    public int odabirHamburgera(){
+    public int odabirHamburgera() {
 
         int odabir;
 
@@ -39,40 +42,61 @@ public class Hamburger {
                 "\n2. Healty hamburger" +
                 "\n3. Deluxe hamburger");
 
-        Scanner s=new Scanner(System.in);
-        odabir=s.nextInt();
+        Scanner s = new Scanner(System.in);
+        odabir = s.nextInt();
 
 
-        switch (odabir){
+        switch (odabir) {
 
             case 1:
 
                 int odabirDodatka;
                 System.out.println("Izabrali ste \"Classic\" hamburger");
 
-                System.out.println("Da li zelite dodatke u svoj hamburger?"+
-                "\n1. Zelim" +
+                System.out.println("Da li zelite dodatak u svoj hamburger?" +
+                        "\n1. Zelim" +
                         "\n2. Ne zelim");
 
-                Scanner input1=new Scanner(System.in);
-                odabirDodatka=s.nextInt();
+                Scanner input1 = new Scanner(System.in);
+                odabirDodatka = s.nextInt();
 
-                if(odabirDodatka==1) {
+                if (odabirDodatka == 1) {
 
-                    System.out.println("Izaberite vase dodatke: " +
+                    int izabirDodatka;
+
+                    String[] dodaci = {"", "Paradajz", "Kiseli krastavci", "Kecap", "Majoneza"};
+                    double[] cijenaDodataka = {0.0, 0.75, 0.63, 0.35, 0.42};
+
+                    System.out.println("Izaberite vas dodatak: " +
                             "\n1. Paradajz" +
                             "\n2. Kiseli krastavci" +
                             "\n3. Kecap" +
                             "\n4. Majoneza " +
-                            "\n Za prekid pritisnite \"5\"");
+                            "\n Za izlaz pritisnite \"5\" ");
+                    Scanner input2 = new Scanner(System.in);
+                    izabirDodatka = s.nextInt();
 
+
+                        for (int i = 1; i <= dodaci.length; i++) {
+                            for (int j = 1; j <= cijenaDodataka.length; j++) {
+
+                                if (izabirDodatka == i) {
+
+                                    System.out.println("Izabrali ste dodatak: " + dodaci[i] + " po cijeni " + cijenaDodataka[i]);
+                                    break;
+                                }
+
+                            }
+                        }
+                    }
+                    break;
                 }
 
 
-
-        }
+        return odabir;
     }
 
+/*
     public void setDodatak1(String ime, double cijena) {
 
         this.Dodatak1 = ime;
@@ -100,6 +124,8 @@ public class Hamburger {
         this.dodatakcijena4 = cijena;
 
     }
+
+    */
 
     public double statusHamburgera() {
 
